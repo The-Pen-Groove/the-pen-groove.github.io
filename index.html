@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Pen Groove</title>
+
+<style>
+    :root {
+        --skate-duration: 13s;
+    }
+
+    body {
+        min-height: 100dvh;
+        overflow: hidden;
+        margin: 0;
+        background: #000 url(http://akrepnalan.com/images/blstars.gif);
+        color: #c8a;
+        animation: camera var(--skate-duration) linear 1 forwards;
+    }
+
+    @keyframes camera {
+        from, 40% {
+            background-position-x: 0;
+        }
+        55%, to {
+            background-position-x: -60%;
+        }
+    }
+
+    h1 {
+        --hypot: calc(hypot(var(--inner-width), var(--inner-height)));
+        --angle: calc(sin(var(--inner-height) / var(--hypot)) * 90deg);
+        position: absolute;
+        top: -10em;
+        translate: 0 -50%;
+        font-size: 3dvmin;
+        font-family: monospace;
+        text-align: center;
+        white-space: nowrap;
+        animation:
+            skate-enter
+                var(--skate-duration)
+                linear 1,
+            skate-main
+                calc(var(--skate-duration) * 55 / 100)
+                var(--skate-duration)
+                linear infinite;
+    }
+
+    @keyframes skate-enter {
+        from {
+            left: -30em;
+            rotate: var(--angle);
+        }
+        38% {
+            rotate: var(--angle);
+        }
+        40% {
+            rotate: 0deg;
+            left: calc(80%);
+            top: 85%;
+        }
+        55% {
+            left: -30em;
+            top: 85%;
+        }
+        to {
+            top: 85%;
+            left: calc(100% + 6em);
+        }
+    }
+
+    @keyframes skate-main {
+        from {
+            top: 85%;
+            left: -30em;
+        }
+        to {
+            top: 85%;
+            left: calc(100% + 6em);
+        }
+    }
+
+    .skate {
+        display: block;
+        font-size: 6em;
+    }
+
+    .lightning {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% 40%;
+        width: 7em;
+        transform-origin: center -40%;
+        animation: lightning 5s linear infinite;
+    }
+
+    .sparks {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -90% -10%;
+        z-index: -1;
+        width: 8em;
+        clip-path: polygon(0 0, 60% 0, 60% 100%, 0 100%);
+    }
+
+    @keyframes lightning {
+        to {
+            rotate: -1turn;
+        }
+    }
+
+    .join {
+        position: absolute;
+        top: 50%;
+        left: calc(100% + 6em);
+        translate: 0 -50%;
+        padding: 1dvmin;
+        font-weight: bold;
+        font-style: italic;
+        font-size: 7dvmin;
+        font-family: "comic sans ms";
+        background: radial-gradient(
+            circle at center,
+            red,
+            yellow,
+            lime,
+            cyan,
+            blue,
+            magenta
+        );
+        background-clip: text;
+        background-size: 200% 200%;
+        color: transparent;
+        white-space: nowrap;
+        animation:
+            join-enter
+                calc(var(--skate-duration) * 15 / 100)
+                calc(var(--skate-duration) * 40 / 100)
+                1 linear forwards,
+            join-gradient 2s linear infinite;
+    }
+
+    @keyframes join-enter {
+        to {
+            left: 50%;
+            translate: -50% -50%;
+        }
+    }
+
+    @keyframes join-gradient {
+        to {
+            background-position: 200% 200%;
+        }
+    }
+
+    .message {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        translate: -50% -50%;
+    }
+
+    .message-1 {
+        animation: hide 1s calc(var(--skate-duration) / 2) 1 forwards;
+    }
+
+    .message-2 {
+        opacity: 0;
+        animation:
+            show 1s calc(var(--skate-duration) / 2) 1 forwards,
+            hide 1s var(--skate-duration) 1 forwards;
+    }
+
+    .message-3 {
+        opacity: 0;
+        animation:
+            show 1s var(--skate-duration) 1 forwards,
+            hide 1s calc(var(--skate-duration) * 1.5) 1 forwards;
+    }
+
+    .message-4 {
+        opacity: 0;
+        animation: show 1s calc(var(--skate-duration) * 1.5) 1 forwards;
+    }
+
+    @keyframes hide {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+
+    @keyframes show {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    .meme {
+        --start: calc(var(--skate-duration) / 1.5);
+        --delay: calc(var(--skate-duration) / 2);
+        --fade-in: 5s;
+        position: absolute;
+        opacity: 0;
+        animation:
+            show
+            var(--fade-in)
+            calc(var(--start) + var(--delay) * var(--order, 0))
+            1 forwards;
+    }
+
+    .pizza {
+        --order: 0;
+        top: 20%;
+        right: 30%;
+    }
+
+    .facts {
+        --order: 1;
+        top: 30%;
+        left: 40%;
+    }
+
+    .globe {
+        --order: 1.25;
+        top: 10%;
+        left: 10%;
+    }
+
+    .tweety {
+        --order: 2;
+        top: 50%;
+        left: 3%;
+    }
+
+    .duck {
+        --order: 2.25;
+        top: 30%;
+        right: 5%;
+    }
+</style>
+</head>
+
+<body>
+    <h1>
+        <span class="message message-1">✨ welcome to the pen groove web site ✨</span>
+        <span class="message message-2">🌈 we have pizza 🍕</span>
+        <span class="message message-3">🌈 HTML codes 📀</span>
+        <span class="message message-4">🌈 great art & hot skills 🔥</span>
+        <img class="lightning" src="https://web.archive.org/web/20091027082101if_/http://www.geocities.com/lobowolf72/Lightning02.gif" alt="lightning bolts">
+        <img class="sparks" src="https://web.archive.org/web/20091026233355im_/http://ar.geocities.com/miannac2003/lightning.gif" alt="sparks">
+        <span class="skate">🛼</span>
+    </h1>
+
+    <a target="_blank" href="https://discord.gg/CjWBHSwyAK" class="join">join our discord server</a>
+
+    <img src="https://web.archive.org/web/20090831043416im_/http://geocities.com/novafriburgo_2000/lanny/pizza.gif" alt="pizza" class="pizza meme">
+
+    <img src="https://web.archive.org/web/20040930125126/http://uk.geocities.com:80/fantasticfacts/fflogo5.GIF" alt="fantastic facts at your finger-tips" class="facts meme">
+
+    <img src="https://web.archive.org/web/20090727221919/http://us.geocities.com/webghost_affiliates/images/globe9.gif" alt="globe" class="globe meme">
+
+    <img src="https://web.archive.org/web/20090807132630/http://www.geocities.com/dalia_rubin/yael/painting2.gif" alt="tweety" class="tweety meme">
+
+    <img src="https://web.archive.org/web/20090801063934/http://www.geocities.com/katyatoo/BiggrannyDance.gif" alt="duck" class="duck meme">
+
+    <script>
+        function dimensions() {
+            window.document.documentElement.style.setProperty('--inner-width', window.innerWidth)
+            window.document.documentElement.style.setProperty('--inner-height', window.innerHeight)
+        }
+
+        window.addEventListener('resize', dimensions)
+        window.addEventListener('orientationchange', dimensions)
+        dimensions()
+    </script>
+</body>
+</html>
