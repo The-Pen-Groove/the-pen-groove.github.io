@@ -7,7 +7,7 @@
 
 <style>
     :root {
-        --skate-duration: 13s;
+        --skate-duration: 12s;
     }
 
     body {
@@ -43,7 +43,7 @@
                 var(--skate-duration)
                 linear 1,
             skate-main
-                calc(var(--skate-duration) * 55 / 100)
+                calc(var(--skate-duration) * 45 / 100)
                 var(--skate-duration)
                 linear infinite;
     }
@@ -65,6 +65,9 @@
             left: -30em;
             top: 85%;
         }
+        60% {
+            left: -6em;
+        }
         to {
             top: 85%;
             left: calc(100% + 6em);
@@ -75,6 +78,9 @@
         from {
             top: 85%;
             left: -30em;
+        }
+        10% {
+            left: -10em;
         }
         to {
             top: 85%;
@@ -179,12 +185,36 @@
         opacity: 0;
         animation:
             show 1s var(--skate-duration) 1 forwards,
-            hide 1s calc(var(--skate-duration) * 1.5) 1 forwards;
+            hide 1s calc(var(--skate-duration) * 1.4) 1 forwards;
     }
 
     .message-4 {
         opacity: 0;
-        animation: show 1s calc(var(--skate-duration) * 1.5) 1 forwards;
+        animation: 
+            show 1s calc(var(--skate-duration) * 1.4) 1 forwards,
+            hide 1s calc(var(--skate-duration) * 1.9) 1 forwards;
+    }
+
+    .message-5 {
+        opacity: 0;
+        font-size: 2em;
+        position: absolute;
+        z-index: -1;
+        margin-left: -1.7em;
+        margin-top: 0.2em;
+        transform-origin: bottom right;
+        animation:
+            show 1s calc(var(--skate-duration) * 1.9) 1 forwards,
+            balloon 2s ease-in-out infinite;
+    }
+
+    @keyframes balloon {
+        from, to {
+            rotate: -5deg;
+        }
+        50% {
+            rotate: 5deg;
+        }
     }
 
     @keyframes hide {
@@ -206,7 +236,7 @@
     }
 
     .meme {
-        --start: calc(var(--skate-duration) / 1.5);
+        --start: calc(var(--skate-duration) / 1.66);
         --delay: calc(var(--skate-duration) / 2);
         --fade-in: 5s;
         position: absolute;
@@ -256,7 +286,8 @@
         <span class="message message-1">✨ welcome to the pen groove web site ✨</span>
         <span class="message message-2">🌈 we have pizza 🍕</span>
         <span class="message message-3">🌈 HTML codes 📀</span>
-        <span class="message message-4">🌈 great art & hot skills 🔥</span>
+        <span class="message message-4">🌈 hot art skills 🔥</span>
+        <span class="message message-5">🎈</span>
         <img class="lightning" src="Lightning02.gif" alt="lightning bolts">
         <img class="sparks" src="lightning.gif" alt="sparks">
         <span class="skate">🛼</span>
