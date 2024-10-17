@@ -18,6 +18,7 @@
         height: 100dvh;
         overflow: hidden;
         margin: 0;
+        perspective: 1000dvw;
         background: #000 url(stars.gif);
         color: #c8a;
         animation: camera var(--skate-duration) linear 1 forwards;
@@ -240,18 +241,44 @@
         }
     }
 
-    .meme {
+    .screen-2 {
         --start: calc(var(--skate-duration) / 1.66);
         --delay: calc(var(--skate-duration) / 2);
         --fade-in: 5s;
-        position: absolute;
-        max-width: 20dvmin;
-        opacity: 0;
-        animation:
-            show
+        --screen-2-enter: show
             var(--fade-in)
             calc(var(--start) + var(--delay) * var(--order, 0))
             1 forwards;
+        position: absolute;
+        opacity: 0;
+        animation: var(--screen-2-enter);
+    }
+
+    .play.pinball {
+        top: 5%;
+        left: 50%;
+        translate: -50% 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.2em;
+        font-size: 3dvmin;
+        font-family: "comic sans ms";
+        background: radial-gradient(
+            circle at center,
+            white,
+            gray
+        );
+        background-clip: text;
+        background-size: 200% 200%;
+        color: transparent;
+
+        img {
+            width: 36px;
+        }
+    }
+
+    .meme {
+        max-width: 20dvmin;
     }
 
     .pizza {
@@ -298,17 +325,22 @@
         <span class="skate">🛼</span>
     </h1>
 
+    <a class="play pinball screen-2" href="pinball">
+        Play Pinball
+        <img src="Pinball.png" alt="Pinball">
+    </a>
+
     <a target="_blank" href="https://discord.gg/CjWBHSwyAK" class="join">join the groove</a>
 
-    <img src="pizza.gif" alt="pizza" class="pizza meme">
+    <img src="pizza.gif" alt="pizza" class="pizza meme screen-2">
 
-    <img src="fflogo5.GIF" alt="fantastic facts at your finger-tips" class="facts meme">
+    <img src="fflogo5.GIF" alt="fantastic facts at your finger-tips" class="facts meme screen-2">
 
-    <img src="globe9.gif" alt="globe" class="globe meme">
+    <img src="globe9.gif" alt="globe" class="globe meme screen-2">
 
-    <img src="painting2.gif" alt="tweety" class="tweety meme">
+    <img src="painting2.gif" alt="tweety" class="tweety meme screen-2">
 
-    <img src="BiggrannyDance.gif" alt="granny" class="granny meme">
+    <img src="BiggrannyDance.gif" alt="granny" class="granny meme screen-2">
 
     <script>
         function dimensions() {
