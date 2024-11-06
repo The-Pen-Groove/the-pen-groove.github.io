@@ -280,6 +280,31 @@
         }
     }
 
+    .rad-banners {
+        top: 10%;
+        left: 75%;
+        translate: -50% 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.2em;
+        font-size: 3dvmin;
+        font-family: "comic sans ms";
+        background: radial-gradient(
+            circle at center,
+            purple,
+            yellow
+        );
+        background-clip: text;
+        background-size: 200% 200%;
+        color: transparent;
+        white-space: pre;
+
+        img {
+            width: 72px;
+            margin-top: -20px;
+        }
+    }
+
     .meme {
         max-width: 20dvmin;
     }
@@ -330,7 +355,12 @@
 
     <a class="play pinball screen-2" href="pinball">
         Play Pinball
-        <img src="Pinball.png" alt="Pinball">
+        <img src="Pinball.png" alt="">
+    </a>
+
+    <a class="rad-banners screen-2" href="banners">
+        Rad Banners
+        <img src="radbanners.gif" alt="">
     </a>
 
     <a target="_blank" href="https://discord.gg/CjWBHSwyAK" class="join">join the groove</a>
