@@ -264,7 +264,7 @@
         display: inline-flex;
         align-items: center;
         gap: 0.2em;
-        font-size: 3dvmin;
+        font-size: max(16px, 3dvmin);
         font-family: "comic sans ms";
         background: radial-gradient(
             circle at center,
@@ -274,10 +274,11 @@
         background-clip: text;
         background-size: 200% 200%;
         color: transparent;
+    }
 
-        img {
-            width: 36px;
-        }
+    .play.pinball img {
+        width: 36px;
+        max-width: 20dvmin;
     }
 
     .rad-banners {
@@ -287,7 +288,7 @@
         display: inline-flex;
         align-items: center;
         gap: 0.2em;
-        font-size: 3dvmin;
+        font-size: max(16px, 3dvmin);
         font-family: "comic sans ms";
         background: radial-gradient(
             circle at center,
@@ -298,11 +299,12 @@
         background-size: 200% 200%;
         color: transparent;
         white-space: pre;
+    }
 
-        img {
-            width: 72px;
-            margin-top: -20px;
-        }
+    .rad-banners img {
+        width: 72px;
+        margin-top: -20px;
+        max-width: 20dvmin;
     }
 
     .meme {
